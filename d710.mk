@@ -48,6 +48,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
 
+# Goo
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/goomanager.apk:system/app/goomanager.apk
+
 # Net
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ip-up:system/etc/ppp/ip-up \
@@ -56,7 +60,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/sirfgps.conf:system/etc/sirfgps.conf \
+<<<<<<< HEAD
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+=======
+    $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
+>>>>>>> 764f82a1564cd2737885b7f429a28acf90c6ee61
 
 # Packages
 PRODUCT_PACKAGES := \
@@ -120,7 +128,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mobiledata.interfaces=ppp0,wlan0,uwbr0 \
     ro.telephony.ril_class=SamsungCDMAv6RIL \
     ro.ril.samsung_cdma=true \
-    ro.carrier=Sprint
+    ro.carrier=Sprint \
+    ro.goo.version=$(shell date +%Y%m%d%H%M%S)
 
 # enable Google-specific location features,
 # like NetworkLocationProvider and LocationCollector
